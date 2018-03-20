@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title></title>
+    <script>
+        $(document).ready(function() {
+            $(".edit").click(function() {
+                $(this).css('display', 'none');
+                $(this).parent().find(".save").css('display', 'table');
+                $(this).parent().find(".name").replaceWith('<input class="name" type="text" value="Breakfast">');
+                $(this).parent().find(".calories").find("span").replaceWith('<input style="max-width: 50px;" type="text" value="0.00"><span>kg</span>');
+                $(this).parent().find(".protein").find("span").replaceWith('<input style="max-width: 50px;" type="text" value="0.00"><span>kg</span>');
+                $(this).parent().find(".carbs").find("span").replaceWith('<input style="max-width: 50px;" type="text" value="0.00"><span>kg</span>');
+                $(this).parent().find(".fat").find("span").replaceWith('<input style="max-width: 50px;" type="text" value="0.00"><span>kg</span>');
+            });
+            $(".save").click(function() {
+                $(this).css('display', 'none');
+                $(this).parent().find(".edit").css('display', 'table');
+                $(this).parent().find(".name").replaceWith($(this).parent().find(".name").val());
+                $(this).parent().find(".calories").replaceWith('')
+            });
+        });
+    </script>
+    <style media="screen">
+        * {
+            font-family: Roboto;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .bottom-container {
+            width: 100%;
+        }
+
+        .content-bottom {
+            width: 500px;
+        }
+
+        .add-meal {
+            display: block;
+            padding: 16px;
+            background: #4FC76B;
+            border-color: #0EA832;
+            color: white;
+            font-weight: normal;
+            font-size: 16px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .foods-container {
+            width: 100%;
+        }
+
+        .food {
+            position: relative;
+            margin: 8px;
+            border-bottom: 3px #D8D8D8;
+            /* FIXME:  */
+        }
+
+        .name {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .stats {}
+
+        .stats>span>* {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 12px;
+        }
+
+        .stats>span>div:first-child {
+            width: 10px;
+            height: 10px;
+            margin-right: 4px;
+            border-radius: 10px;
+        }
+
+        .stats>span>span, .stats>span>input {
+            margin-right: 8px;
+        }
+
+        .stats>.calories>div:first-child {
+            background: #0099FF;
+        }
+
+        .stats>.protein>div:first-child {
+            background: #FF0062;
+        }
+
+        .stats>.carbs>div:first-child {
+            background: #00FF4E;
+        }
+
+        .stats>.fat>div:first-child {
+            background: #FF7F00;
+        }
+        /* http://the-echoplex.net/flexyboxes/?fixed-height=on&display=inline-flex&flex-direction=row&flex-wrap=nowrap&justify-content=flex-start&align-items=flex-start&align-content=flex-end&order%5B%5D=0&flex-grow%5B%5D=1&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto&order%5B%5D=0&flex-grow%5B%5D=1&flex-shrink%5B%5D=1&flex-basis%5B%5D=auto&align-self%5B%5D=auto
+            */
+
+        .edit {
+            display: table;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .save {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .edit>* {
+            padding: 4px;
+        }
+
+        .save>* {
+            padding: 4px;
+        }
+
+        .edit>.text {
+            display: table-cell;
+            background: #EFEFEF;
+            vertical-align: middle;
+            font-size: 12px;
+            color: #909090;
+        }
+
+        .edit>.icon {
+            font-size: 12px;
+            display: table-cell;
+            vertical-align: middle;
+            background: #F28535;
+            color: white;
+        }
+
+        .save>.text {
+            display: table-cell;
+            background: #EFEFEF;
+            vertical-align: middle;
+            font-size: 12px;
+            color: #909090;
+        }
+
+        .save>.icon {
+            font-size: 12px;
+            display: table-cell;
+            vertical-align: middle;
+            background: #F28535;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bottom-container">
+        <div class="content-bottom">
+            <button class="add-meal" type="button" name="button">Add meal</button>
+            <div class="foods-container">
+                <div class="food">
+                    <div class="name">
+                        Breakfast
+                    </div>
+                    <div class="stats">
+                        <span class="calories">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                        <span class="protein">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                        <span class="carbs">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                        <span class="fat">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                    </div>
+                    <div class="edit">
+                        <span class="text">
+                                Edit meal
+                            </span>
+                        <span class="icon">
+                                <i class="material-icons">edit</i>
+                            </span>
+                    </div>
+                    <div class="save">
+                        <span class="text">
+                                Save
+                            </span>
+                        <span class="icon">
+                                <i class="material-icons">save</i>
+                            </span>
+                    </div>
+                </div>
+                <div class="food">
+                    <div class="name">
+                        Breakfast
+                    </div>
+                    <div class="stats">
+                        <span class="calories">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                        <span class="protein">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                        <span class="carbs">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                        <span class="fat">
+                                <div></div><span>0.00kg</span>
+                        </span>
+                    </div>
+                    <div class="edit">
+                        <span class="text">
+                                Edit meal
+                            </span>
+                        <span class="icon">
+                                <i class="material-icons">edit</i>
+                            </span>
+                    </div>
+                    <div class="save">
+                        <span class="text">
+                                Save
+                            </span>
+                        <span class="icon">
+                                <i class="material-icons">save</i>
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
