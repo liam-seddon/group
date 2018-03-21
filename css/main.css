@@ -6,6 +6,11 @@
     outline: none;
 }
 
+.w3-grey{
+    height:24px;
+    width:20%;
+}
+
 .bottom-container {
     width: 100%;
 }
